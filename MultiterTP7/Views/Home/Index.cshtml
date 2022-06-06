@@ -1,0 +1,37 @@
+﻿@model IEnumerable<CommonLayer.Models.Employee>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<a href="/Employee/Create">Create</a>
+<table class="table table-bordered table-hover table-striped" id="myTable">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Address</th>
+            <th>Gender</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <td>@emp.Id</td>
+                <td>@emp.Name</td>
+                <td>@emp.Email</td>
+                <td>@emp.Mobile</td>
+                <td>@emp.Address</td>
+                <td>@emp.Gender</td>
+                <td>
+                    <a href="/Employee/Delete?id=@emp.Id" class="btn btn-danger">Delete</a>
+                    <a href="/Employee/Edit?id=@emp.Id" class="btn btn-primary">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
